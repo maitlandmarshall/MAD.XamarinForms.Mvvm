@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Maitland Marshall</Authors>
+    <Company>MAIT DEV</Company>
   </PropertyGroup>
 
   <ItemGroup>
