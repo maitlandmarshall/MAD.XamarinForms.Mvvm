@@ -5,6 +5,7 @@
     <Authors>Maitland Marshall</Authors>
     <Company>MAIT DEV</Company>
     <Version>1.0.2</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
