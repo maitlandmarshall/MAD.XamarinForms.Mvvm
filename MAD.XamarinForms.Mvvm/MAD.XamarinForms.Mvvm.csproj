@@ -4,6 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Maitland Marshall</Authors>
     <Company>MAIT DEV</Company>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
