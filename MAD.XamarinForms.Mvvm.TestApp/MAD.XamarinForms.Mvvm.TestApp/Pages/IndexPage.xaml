@@ -9,6 +9,9 @@
     <StackLayout x:DataType="vm:IndexViewModel">
         <Button Text="Navigate with result"
                 Command="{Binding NavigateWithResultCommand}"/>
+
+        <Button Text="Cancel navigating event"
+                Command="{Binding CancelNavigatingEventCommand}"/>
     </StackLayout>
     
 </ContentPage>

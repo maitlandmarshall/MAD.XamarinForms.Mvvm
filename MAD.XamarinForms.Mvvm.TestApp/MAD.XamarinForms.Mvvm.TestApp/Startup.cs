@@ -15,7 +15,7 @@ namespace MAD.XamarinForms.Mvvm.TestApp
         {
             navigationRouteService.RegisterRoute(nameof(Details1Page), typeof(Details1Page));
 
-            mvvmApp.FormsApplication.MainPage = new NavigationPage(new IndexPage());
+            mvvmApp.FormsApplication.MainPage = new AppShell();
         }
     }
 }
