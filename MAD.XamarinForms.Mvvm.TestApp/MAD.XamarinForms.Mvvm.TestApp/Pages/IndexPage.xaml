@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MAD.XamarinForms.Mvvm.TestApp.ViewModels"
+             xmlns:mvvm="clr-namespace:MAD.XamarinForms.Mvvm;assembly=MAD.XamarinForms.Mvvm"
+             mvvm:Mvvm.ViewModel="{x:Type vm:IndexViewModel}"
+             x:Class="MAD.XamarinForms.Mvvm.TestApp.Pages.IndexPage">
+    
+    <StackLayout x:DataType="vm:IndexViewModel">
+        <Button Text="Navigate with result"
+                Command="{Binding NavigateWithResultCommand}"/>
+    </StackLayout>
+    
+</ContentPage>

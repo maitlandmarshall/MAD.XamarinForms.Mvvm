@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAD.XamarinForms.Mvvm.TestApp.Pages.Details1Page"
+             xmlns:vm="clr-namespace:MAD.XamarinForms.Mvvm.TestApp.ViewModels"
+             xmlns:mvvm="clr-namespace:MAD.XamarinForms.Mvvm;assembly=MAD.XamarinForms.Mvvm"
+             mvvm:Mvvm.ViewModel="{x:Type vm:Details1ViewModel}">
+
+    <StackLayout Orientation="Vertical"
+                 x:DataType="vm:Details1ViewModel">
+
+        <Button Text="Send result"
+                Command="{Binding SendResultCommand}"/>
+
+    </StackLayout>
+</ContentPage>

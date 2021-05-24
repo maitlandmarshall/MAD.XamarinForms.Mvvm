@@ -35,4 +35,9 @@ namespace MAD.XamarinForms.Mvvm
         public virtual void ViewDisappeared() { }
         public virtual void ViewDestroy() { }
     }
+
+    public abstract class ViewModel<TResult> : ViewModel
+    {
+        public TaskCompletionSource<TResult> ResultTaskCompletionSource { get; } = new TaskCompletionSource<TResult>();
+    }
 }

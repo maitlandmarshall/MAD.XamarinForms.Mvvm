@@ -24,6 +24,19 @@ namespace MAD.XamarinForms.Mvvm
 
         public async Task GoToAsync(string route, params object[] navigationData)
         {
+            await this.NavigateAndYieldCurrentPage(route, navigationData);
+        }
+
+        public async Task<TResult> GoToAsync<TResult>(string route, params object[] navigationData)
+        {
+            var currentPage = await this.NavigateAndYieldCurrentPage(route, navigationData);
+            var viewModel = currentPage.BindingContext as ViewModel<TResult>;
+
+            return await viewModel?.ResultTaskCompletionSource.Task;
+        }
+
+        private async Task<Page> NavigateAndYieldCurrentPage(string route, params object[] navigationData)
+        {
             if (navigationData.Any())
             {
                 var navigationDataBagId = this.navigationDataBag.Put(navigationData);
@@ -32,6 +45,8 @@ namespace MAD.XamarinForms.Mvvm
 
                 route += $"?{query}";
             }
+
+            Page currentPage;
 
             if (Shell.Current is null)
             {
@@ -43,6 +58,7 @@ namespace MAD.XamarinForms.Mvvm
                         throw new NotSupportedException("Route Element must be a Page.");
 
                     await navigationPage.PushAsync(routeElement);
+                    currentPage = routeElement;
                 }
                 else
                 {
@@ -52,7 +68,10 @@ namespace MAD.XamarinForms.Mvvm
             else
             {
                 await Shell.Current.GoToAsync(route);
+                currentPage = Shell.Current.CurrentPage;
             }
+
+            return currentPage;
         }
 
     }

@@ -145,10 +145,14 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.12"/>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.12" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\MAD.XamarinForms.Mvvm\MAD.XamarinForms.Mvvm.csproj">
+      <Project>{d38df9a0-67b4-46fb-a5f6-87571bdc7c87}</Project>
+      <Name>MAD.XamarinForms.Mvvm</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MAD.XamarinForms.Mvvm.TestApp\MAD.XamarinForms.Mvvm.TestApp.csproj">
       <Project>{0008C7C9-3D59-4FDF-AF02-980772EDDBD1}</Project>
       <Name>MAD.XamarinForms.Mvvm.TestApp</Name>
