@@ -9,7 +9,7 @@ namespace MAD.XamarinForms.Mvvm
 {
     public static partial class Mvvm
     {
-        public static void Init<TStartup>(TStartup instance = null)
+        public static async void Init<TStartup>(TStartup instance = null)
             where TStartup : class, new()
         {
             if (instance is null) instance = new TStartup();
@@ -23,7 +23,7 @@ namespace MAD.XamarinForms.Mvvm
             var services = serviceDescriptors.BuildServiceProvider();
             mvvmApp.Services = services;
 
-            ConfigureStartup(instance, services);
+            await ConfigureStartup(instance, services);
         }
 
         private static void ConfigureStartupServices<TStartup>(TStartup instance, IServiceCollection serviceDescriptors)
@@ -34,7 +34,7 @@ namespace MAD.XamarinForms.Mvvm
             configureServices.Invoke(instance, new[] { serviceDescriptors });
         }
 
-        private static void ConfigureStartup<TStartup>(TStartup instance, IServiceProvider services)
+        private static async Task ConfigureStartup<TStartup>(TStartup instance, IServiceProvider services)
         {
             var configure = typeof(TStartup).GetMethod("Configure");
             if (configure is null) return;
@@ -51,7 +51,7 @@ namespace MAD.XamarinForms.Mvvm
 
             if (configureResult is Task t)
             {
-                t.Wait();
+                await t;
             }
         }
     }
